@@ -1,7 +1,5 @@
-let curCell;
-let it;
+let tm;
 let state;
-let looper;
 let tape = [];
 const machine = document.getElementById("machine");
 const controller = document.getElementsByClassName("controller");
@@ -9,7 +7,6 @@ const controller = document.getElementsByClassName("controller");
 function executeClear() {
   machine.innerHTML = "";
   tape = [];
-  clearInterval(looper);
 }
 
 function move(newSymbol, arah, newState, isPushing) {
@@ -17,21 +14,18 @@ function move(newSymbol, arah, newState, isPushing) {
     tape.push(new Cell("B"));
   }
 
-  tape[it].changeTo(newSymbol);
-  machine.childNodes[it].textContent = newSymbol;
+  tape[tm].changeTo(newSymbol);
+  machine.childNodes[tm].textContent = newSymbol;
 
-  machine.childNodes[it].className += " active";
-  machine.childNodes[it + 1].scrollIntoView();
+  machine.childNodes[tm].className += " moving";
+  machine.childNodes[tm + 1].scrollIntoView();
 
   state = newState;
   if (arah == "R") {
-    it++;
+    tm++;
   } else if (arah == "L") {
-    it--;
+    tm--;
   }
 }
 
-function reachedEndState() {
-  machine.childNodes[it].className += " active";
-  machine.childNodes[it + 1].scrollIntoView();
-}
+function finalState() {}
