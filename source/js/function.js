@@ -28,4 +28,10 @@ function move(newSymbol, arah, newState, isPushing) {
   }
 }
 
-function finalState() {}
+function finalState() {
+  if (state == "final") {
+    return true;
+  } else {
+    return false;
+  }
+}
