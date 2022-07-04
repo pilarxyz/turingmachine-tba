@@ -50,7 +50,7 @@ function executeNextMove() {
       if (tape[tm].symbol == "0") {
         move("0", "R", 0);
       } else if (tape[tm].symbol == "B") {
-        move("1", "L", 1);
+        move("1", "S", 1);
       }
       console.log("state0");
     } else if (state == 1) {
@@ -124,9 +124,11 @@ function executeNextMove() {
       }
       console.log("state8");
     } else if (state == 9) {
-      if (tape[tm].symbol == "0") {
-        move("X", "R", 6);
-      }
+      if (tape[tm].symbol == "1") {
+        move("1", "L", 6);
+      } else if (tape[tm].symbol == "0") {
+        move("X", "R", 10);
+      } 
       console.log("state9");
     } else if (state == 10) {
       if (tape[tm].symbol == "0") {
@@ -174,7 +176,7 @@ function executeNextMove() {
       } else if (tape[tm].symbol == "1") {
         move("0", "L", 15);
       } else if (tape[tm].symbol == "X") {
-        move("X", "R", 15);
+        move("X", "R", 9);
       }
       console.log("state15");
     } else if (state == 16) {
@@ -189,10 +191,10 @@ function executeNextMove() {
         move("X", "R", 19);
       }
       else if (tape[tm].symbol == "0") {
-        move("B", "L", 18);
+        move("B", "R", 18);
       }
       else if (tape[tm].symbol == "1") {
-        move("B", "L", 18);
+        move("B", "R", 18);
       }
       console.log("state17");
     } else if (state == 18) {
@@ -259,7 +261,7 @@ function executeNextMove() {
       } else if (tape[tm].symbol == "1") {
         move("B", "R", 25);
       } else if (tape[tm].symbol == "B") {
-        move("B", "R", "final");
+        move("B", "S", "final");
       }
       console.log("state25");
     } else if (state == "final") {
