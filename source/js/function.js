@@ -25,6 +25,10 @@ function move(newSymbol, arah, newState, isPushing) {
     tm++;
   } else if (arah == "L") {
     tm--;
+  } else if (arah == "S") {
+    tm = tm;
+  } else {
+    console.log("Error: arah is not R or L");
   }
 }
 
