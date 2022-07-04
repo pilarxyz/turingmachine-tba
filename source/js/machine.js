@@ -1,7 +1,6 @@
 class Cell {
   constructor(symbol) {
     this.symbol = symbol;
-    // Make div
     let tag = document.createElement("p");
     let text = document.createTextNode(this.symbol);
     tag.appendChild(text);
