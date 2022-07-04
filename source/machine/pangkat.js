@@ -1,5 +1,4 @@
 let input1 = document.getElementById("input1");
-let input2 = document.getElementById("input2");
 
 function execute() {
   executeClear();
@@ -25,8 +24,6 @@ function execute() {
       tape.push(new Cell("0"));
     }
   }
-
-  tape.push(new Cell("1"));
 
   if (input2.value > 0) {
     for (i = 0; i < input2.value; i++) {
