@@ -36,42 +36,80 @@ function executeNextMove() {
 
     if (state == 0) {
       if (tape[tm].symbol == "0") {
-        move("0", "R", 1);
+        move("B", "R", 1);
+      } else if (tape[tm].symbol == "1") {
+        move("1", "R", 4);
       }
+      console.log("state 0");
     } else if (state == 1) {
       if (tape[tm].symbol == "0") {
         move("0", "R", 1);
       } else if (tape[tm].symbol == "1") {
         move("1", "R", 2);
       }
+      console.log("state 1");
     } else if (state == 2) {
       if (tape[tm].symbol == "0") {
-        move("0", "R", 2);
-      } else if (tape[tm].symbol == "B") {
-        move("B", "L", 3);
-      }
-    } else if (state == 3) {
-      if (tape[tm].symbol == "1") {
-        move("B", "L", "final");
+        move("X", "L", 3);
       } else if (tape[tm].symbol == "0") {
-        move("B", "L", 4);
+        move("B", "L", 6);
+      } else if (tape[tm].symbol == "X") {
+        move("X", "R", 2);
       }
-    } else if (state == 4) {
+      console.log("state 2");
+    } else if (state == 3) {
       if (tape[tm].symbol == "0") {
-        move("0", "L", 4);
+        move("0", "L", 3);
       } else if (tape[tm].symbol == "1") {
-        move("1", "L", 5);
+        move("1", "L", 3);
+      } else if (tape[tm].symbol == "X") {
+        move("X", "L", 3);
+      } else if (tape[tm].symbol == "B") {
+        move("0", "R", 0);
       }
+      console.log("state 3");
+    } else if (state == 4) {
+      if (tape[tm].symbol == "X") {
+        move("X", "R", 4);
+      } else if (tape[tm].symbol == "1") {
+        move("1", "R", 4);
+      } else if (tape[tm].symbol == "0") {
+        move("0", "R", 4);
+      } else if (tape[tm].symbol == "B") {
+        move("0", "L", 5);
+      }
+      console.log("state 4");
     } else if (state == 5) {
       if (tape[tm].symbol == "0") {
         move("0", "L", 5);
+      } else if (tape[tm].symbol == "1") {
+        move("1", "L", 5);
+      } else if (tape[tm].symbol == "X") {
+        move("X", "L", 5);
       } else if (tape[tm].symbol == "B") {
-        move("B", "R", 6);
+        move("B", "R", 0);
       }
+      console.log("state 5");
     } else if (state == 6) {
-      if (tape[tm].symbol == "0") {
-        move("B", "R", 1);
+      if (tape[tm].symbol == "B") {
+        move("B", "R", 7);
+      } else if (tape[tm].symbol == "0") {
+        move("B", "L", 6);
+      } else if (tape[tm].symbol == "1") {
+        move("B", "L", 6);
+      } else if (tape[tm].symbol == "X") {
+        move("B", "L", 6);
       }
+      console.log("state 6");
+    } else if (state == 7) {
+      if (tape[tm].symbol == "B") {
+        move("B", "R", 7);
+      } else if (tape[tm].symbol == "0") {
+        move("0", "L", "final");
+      }
+      console.log("state 7");
+    } else if (tape[tm].symbol == "0") {
+      move("0", "L", "final");
     } else if (state == "final") {
       finalState = true;
     }
