@@ -9,20 +9,24 @@ function execute() {
   tm = 2;
   state = 0;
 
-  if (input1.value > 0) {
-    for (i = 0; i < input1.value; i++) {
-      tape.push(new Cell("0"));
-    }
-  }
-
-  tape.push(new Cell("1"));
-
   if (input2.value > 0) {
     for (i = 0; i < input2.value; i++) {
       tape.push(new Cell("0"));
     }
   }
 
+  tape.push(new Cell("1"));
+
+  if (input1.value > 0) {
+    for (i = 0; i < input1.value; i++) {
+      tape.push(new Cell("0"));
+    }
+  }
+  tape.push(new Cell("1"));
+  tape.push(new Cell("B"));
+  tape.push(new Cell("B"));
+  tape.push(new Cell("B"));
+  tape.push(new Cell("B"));
   tape.push(new Cell("B"));
   tape.push(new Cell("B"));
 }
@@ -51,11 +55,11 @@ function executeNextMove() {
     } else if (state == 2) {
       if (tape[tm].symbol == "0") {
         move("X", "L", 3);
-      } else if (tape[tm].symbol == "0") {
+      } else if (tape[tm].symbol == "1") {
         move("B", "L", 6);
       } else if (tape[tm].symbol == "X") {
         move("X", "R", 2);
-      }
+      } 
       console.log("state 2");
     } else if (state == 3) {
       if (tape[tm].symbol == "0") {
@@ -94,11 +98,11 @@ function executeNextMove() {
       if (tape[tm].symbol == "B") {
         move("B", "R", 7);
       } else if (tape[tm].symbol == "0") {
-        move("B", "L", 6);
+        move("X", "L", 6);
       } else if (tape[tm].symbol == "1") {
-        move("B", "L", 6);
+        move("X", "L", 6);
       } else if (tape[tm].symbol == "X") {
-        move("B", "L", 6);
+        move("X", "L", 6);
       }
       console.log("state 6");
     } else if (state == 7) {
